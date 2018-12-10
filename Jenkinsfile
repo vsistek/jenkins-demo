@@ -6,7 +6,7 @@ pipeline {
             steps {
                 node('master') {
                     checkout scm
-                    sh('sleep 10; echo "Step 1 done"')
+                    sh('sleep 10; echo step1')
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
                 parallel Step2: {
                     node('master') {
                         checkout scm
-                        sh('sleep 10; echo "Step 2 done"')
+                        sh('sleep 10; echo step2')
                     }
                 },
                 Jenkinsfile: {
@@ -29,7 +29,7 @@ pipeline {
         stage('step3') {
             steps {
                 node('master') {
-                    sh('sleep 10; echo "Step 3 done"')
+                    sh('sleep 10; echo step3')
                 }
             }
         }
